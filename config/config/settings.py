@@ -43,6 +43,12 @@ INSTALLED_APPS = [
     # Local Apps
     'posts.apps.PostsConfig'
 ]
+# New
+REST_FRAMEWORK ={
+    'DEFAULT_PERMISSIONS_CLASSES':[
+        'rest_framework.permission.IsAuthenticated',#new
+    ]
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
