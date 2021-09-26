@@ -37,8 +37,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites', #new
     # 3rd Party Apps
     'rest_framework',
+    'rest_framework.authtoken', #new
+    'dj_rest_auth', #new
+    'allauth',#new
+    'allauth.account',#new
+    'allauth.socialaccount',#new
+    'dj_rest_auth.registration', #new
 
     # Local Apps
     'posts.apps.PostsConfig'
@@ -47,8 +54,15 @@ INSTALLED_APPS = [
 REST_FRAMEWORK ={
     'DEFAULT_PERMISSIONS_CLASSES':[
         'rest_framework.permission.IsAuthenticated',#new
-    ]
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES':[ #new
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ],
 }
+
+EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend' #new
+SITE_ID = 1 #new
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -134,3 +148,5 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
