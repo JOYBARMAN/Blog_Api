@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites', #new
-    # 3rd Party Apps
+
+   # 3rd Party Apps
+
     'rest_framework',
     'rest_framework.authtoken', #new
     'dj_rest_auth', #new
